@@ -3,7 +3,7 @@ import { deleteRequest, getRequest, postRequest } from '@/utils/api/calls';
 import { CreateJobPayload, IJobs, IJobsData, JobStatus } from './payload';
 import { patchRequest } from '../../utils/api/calls';
 
-const ENDPOINT = '/job';
+const ENDPOINT = '/jobs';
 
 export const createJob = (data: CreateJobPayload) => {
   return postRequest({

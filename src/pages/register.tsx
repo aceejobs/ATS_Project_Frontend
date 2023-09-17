@@ -16,7 +16,7 @@ import { login } from '@/services/auth';
 import { setUserData } from '@/slices/userSlice';
 import { processResponse } from '@/utils/response/processResponse';
 
-const Login: NextPageWithLayout = () => {
+const Register: NextPageWithLayout = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
 
@@ -82,7 +82,7 @@ console.log(data)
       <div className='flex h-screen w-[50%] items-center justify-center bg-ace-light-blue'>
         <div className='relative h-[337px] w-[255px]'>
           <Image
-            src='/assets/svg/big-logo-2.svg'
+            src='/assets/svg/big-logo-2.jpg'
             alt='big-logo'
             className='object-contain'
             fill={true}
@@ -93,7 +93,7 @@ console.log(data)
       <div className='flex h-screen w-[50%] flex-col items-center justify-center'>
         <div className='relative mb-8 h-[78px] w-[139px]'>
           <Image
-            src='/assets/svg/log.jpg'
+            src='/assets/svg/log.svg'
             alt='big-logo'
             className='object-contain'
             fill={true}
@@ -135,7 +135,7 @@ console.log(data)
   );
 };
 
-Login.getLayout = function getLayout(page: ReactElement) {
+Register.getLayout = function getLayout(page: ReactElement) {
   return <>{page}</>;
 };
-export default Login;
+export default Register;

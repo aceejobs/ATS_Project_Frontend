@@ -280,3 +280,9 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
+
+@media (min-width: 375px){
+.container {
+    padding: 1rem;
+}
+}
