@@ -1,4 +1,4 @@
-import { LoginPayload } from '@/services/auth/payload';
+import { LoginPayload, RegisterPayload } from '@/services/auth/payload';
 import { postRequest } from '@/utils/api/calls';
 
 const login = (data: LoginPayload) => {
@@ -8,4 +8,11 @@ const login = (data: LoginPayload) => {
   });
 };
 
-export { login };
+const register = (data: RegisterPayload) => {
+  return postRequest({
+    url: '/auth',
+    data,
+  });
+};
+
+export { login, register };
