@@ -28,6 +28,7 @@ const Jobs = () => {
     getAllJobs()
   );
 
+  console.log(data)
   if (isLoading) {
     return <Skeleton className='h-screen w-full' />;
   }

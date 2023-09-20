@@ -21,9 +21,11 @@ const Login: NextPageWithLayout = () => {
 
   const { mutate, isLoading } = useMutation(login, {
     onSuccess(response) {
+      console.log(response)
       const data = processResponse(response);
 
       if (data) {
+        console.log(data)
         toast.success('Login successful');
         const userData = {
           firstName: data?.firstName,

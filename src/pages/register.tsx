@@ -14,29 +14,7 @@ import { setUserData } from '@/slices/userSlice';
 import { processResponse } from '@/utils/response/processResponse';
 import Link from 'next/link';
 import { PhotoIcon } from '@heroicons/react/24/solid';
-
-const readFileAsBuffer = (file: File) => {
-  return new Promise<ArrayBuffer>((resolve, reject) => {
-    const reader = new FileReader();
-
-    reader.onload = (event) => {
-      if (event.target && event.target.result) {
-        // `event.target.result` contains the file data as a buffer
-        const buffer = event.target.result as ArrayBuffer;
-        resolve(buffer);
-      } else {
-        reject(new Error("Failed to read file as buffer"));
-      }
-    };
-
-    reader.onerror = (error) => {
-      reject(error);
-    };
-
-    // Read the file as an ArrayBuffer
-    reader.readAsArrayBuffer(file);
-  });
-};
+import blobToBuffer from 'blob-to-buffer';
 
 const Register: NextPageWithLayout = () => {
   const router = useRouter();
@@ -46,45 +24,33 @@ const Register: NextPageWithLayout = () => {
 
   const { mutate, isLoading } = useMutation(register, {
     onSuccess(response) {
-      const data = processResponse(response);
-
-      if (data) {
-        toast.success('Registration successful');
-        const userData = {
-          firstName: data?.firstName,
-          lastName: data?.lastName,
-          email: data?.email,
-          role: data?.role,
-          profileImage: data?.profileImage,
-        };
-        router.push('/login');
-
-        if (response.token) {
-          localStorage.setItem('token', response?.token);
-        }
-        localStorage.setItem('user', JSON.stringify(userData));
-        dispatch(setUserData(userData));
-      }
-    },
+      toast.success(response.message);
+      router.push('/login');
+    }
   });
-
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     // Ensure that event.target and event.target.files are not null
     if (event.target?.files && event.target.files.length > 0) {
       const file = event.target.files[0];
       try {
         // Convert the selected file to a buffer
-        const fileBuffer = await readFileAsBuffer(file);
-
-        // Set the selectedFile state and formik field
-        setSelectedFile(file);
-        formik.setFieldValue('profileImage', fileBuffer);
+        blobToBuffer(file, (err, buffer) => {
+          if (err) {
+            console.error('Error converting file to buffer:', err);
+          } else {
+            const base64String = Buffer.from(buffer).toString('base64');
+            // Set the selectedFile state
+            setSelectedFile(file);
+            // Set the buffer as a base64-encoded string
+            formik.setFieldValue('profileImage', base64String);
+          }
+        });
       } catch (error) {
         console.error('Error reading file:', error);
       }
     }
   };
-
+   
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -92,7 +58,7 @@ const Register: NextPageWithLayout = () => {
       email: '',
       phone: '',
       password: '',
-      profileImage: null as File | null,
+      // profileImage: null as File | null,
     },
     validationSchema: Yup.object({
       firstName: Yup.string().required('First Name is required'),
@@ -103,25 +69,28 @@ const Register: NextPageWithLayout = () => {
       phone: Yup.string().required('Phone number is required'),
       password: Yup.string().required('Password is required'),
     }),
-    onSubmit: async (values) => {
-      if (selectedFile) {
-        try {
-          // Include the file buffer in the payload
-          values.profileImage = selectedFile;
+    onSubmit:(values) => {
+      mutate(values);
 
-          // Call the mutate function to send the registration data, including the profileImage
-          mutate(values);
-        } catch (error) {
-          console.error('Error converting file to buffer:', error);
-          // Set an error message for the profileImage field
-          formik.setFieldError('profileImage', 'Error uploading profile image');
-        }
-      } else {
-        // If no file is selected, submit the form without the profileImage
-        // const { profileImage, ...rest } = values; // Remove profileImage from values
-        mutate(values);
-      }
-    },
+      // if (selectedFile) {
+      //   try {
+      //     // Include the base64-encoded string in the payload
+      //     values.profileImage = formik.values.profileImage;
+    
+      //     // Call the mutate function to send the registration data, including the profileImage
+      //     mutate(values);
+      //   } catch (error) {
+      //     console.error('Error converting file to buffer:', error);
+      //     // Set an error message for the profileImage field
+      //     formik.setFieldError('profileImage', 'Error uploading profile image');
+      //   }
+      // } else {
+      //   // If no file is selected, submit the form without the profileImage
+      //   // const { profileImage, ...rest } = values; // Remove profileImage from values
+      //   mutate(values);
+      // }
+      // },
+    }    
   });
 
   return (
@@ -175,7 +144,6 @@ const Register: NextPageWithLayout = () => {
                   getFieldProps={{ ...formik.getFieldProps('lastName') }}
                   name='lastName'
                   id='lastName'
-                  eye
                 />
               </div>
             </div>
@@ -211,7 +179,7 @@ const Register: NextPageWithLayout = () => {
               id='password'
               eye
             />
-            <div className='col-span-full'>
+            {/* <div className='col-span-full'>
               <label htmlFor='cover-photo' className='block text-sm font-medium leading-6 text-gray-900'>
                 Profile photo
               </label>
@@ -247,7 +215,7 @@ const Register: NextPageWithLayout = () => {
               {formik.errors.profileImage && (
                 <p className='mt-2 text-xs text-red-500'>{formik.errors.profileImage}</p>
               )}
-            </div>
+            </div> */}
             <Button
               variant='primary'
               type='submit'

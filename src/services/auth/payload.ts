@@ -9,5 +9,5 @@ export interface RegisterPayload {
   email: string;
   phone: string;
   password: string;
-  profileImage: File | null;
+  profileImage?: File | null;
 }
