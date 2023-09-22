@@ -26,31 +26,18 @@ const SingleJobDetails = () => {
       <Header
         text=''
         buttonText='Create Job'
-        component={
-          <div
-            onClick={() => router.push(`/jobs/edit-job/${router.query.id}`)}
-            className='flex h-[45px] w-[102px] cursor-pointer items-center justify-center gap-2 rounded-[5px] bg-white '
-          >
-            <Image
-              alt='filter'
-              src='/assets/svg/pen.svg'
-              width={16}
-              height={16}
-            />
-            <p className='text-[14px] font-light'>Edit info</p>
-          </div>
-        }
-        componentWidth='w-[102px]'
+        
       />
-      <div className='mt-3 h-[60px] w-full rounded-[5px] bg-white px-[12rem]   shadow '>
+      {/* <div className='mt-3 h-[60px] w-full rounded-[5px] bg-white px-[12rem]   shadow '>
         <div className=' my-auto flex h-full items-center justify-between'>
           <Button variant='primary' className=' h-[40px] w-[207px]'>
             <span>Job Details</span>
           </Button>
           <p>Hiring Stage</p>
         </div>
-      </div>
-      <section className=' mt-6  rounded-[5px] bg-white p-10 shadow'>
+      </div> */}
+      <section className='my-10  w-full  rounded-[10px] bg-white p-10 shadow-lg border-t-8 border-blue-700'>
+        <p className="mb-6 font-semibold text-2xl">View Job</p>
         <section className=' w-[40%] '>
           <div className='grid grid-cols-2'>
             <div className=''>
@@ -112,12 +99,28 @@ const SingleJobDetails = () => {
           </div>
         </section>
 
-        <Button
-          className=' mt-8 h-[52px] w-[251px]'
+<div className="md:flex items-center mt-8 ">
+<Button
+          className='py-4 md:w-[251px] w-full'
           onClick={() => router.push(`/jobs/qualified-candidates/${data?._id}`)}
         >
           <span>See Qualified Candidates</span>
         </Button>
+
+        <div
+            onClick={() => router.push(`/jobs/edit-job/${router.query.id}`)}
+            className='flex py-4 ml-4  md:w-[10rem] w-full  cursor-pointer items-center justify-center gap-2 rounded-[5px] bg-white border'
+          >
+            <Image
+              alt='filter'
+              src='/assets/svg/pen.svg'
+              width={16}
+              height={16}
+            />
+            <p className='text-[14px] font-light'>Edit Job</p>
+          </div>
+</div>
+
       </section>
     </MainContentLayout>
   );

@@ -23,8 +23,8 @@ const JobsCard: React.FC<JobCardProps> = ({ data }) => {
   const moveToNext = () => {
     if (data.job.isAvailable) {
       router.push({
-        pathname: '/jobs/view-job',
-        query: { id: data?.job._id },
+        pathname: `/jobs/view-job/${data?.job._id}`,
+        // query: { id: data?.job._id },
       });
     }
   };

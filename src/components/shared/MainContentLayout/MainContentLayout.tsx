@@ -11,8 +11,8 @@ const MainContentLayout: React.FC<MainContentLayoutProps> = (props) => {
           overwriteStyles && className
             ? className
             : className
-            ? `mt-6 h-full w-full overflow-y-auto px-6 pb-12  ${className}`
-            : 'mt-6 h-full w-full overflow-y-auto px-6 pb-12 '
+            ? `mt-10 h-full w-full overflow-y-auto px-6 pb-12  ${className}`
+            : 'mt-10 h-full w-full overflow-y-auto px-6 pb-12 '
         }`}
       >
         {children}

@@ -35,7 +35,8 @@ const ViewJob = () => {
               <p>Hiring Stage</p>
             </div>
           </div>
-          <div className=' mt-3 flex w-full justify-between  rounded-[5px]  bg-white p-10 shadow'>
+          <div className='mt-8   w-full  rounded-[10px] bg-white p-10 shadow-lg border-t-8 border-blue-700'>
+
             <section className=' w-[60%] '>
               <div className='grid grid-cols-3'>
                 <div className=''>
