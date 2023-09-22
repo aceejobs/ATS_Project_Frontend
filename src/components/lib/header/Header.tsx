@@ -60,8 +60,9 @@ const Header: React.FC<HeaderProps> = ({
         <div className={`${componentWidth} rounded-[5px] bg-white  `}>
           {component}
         </div>
+        {buttonText? 
         <Link
-          href={buttonText ? '/jobs/create-job' : '/candidates/add-candidates'}
+          href={buttonText ? '/jobs/create-job' : ''}
         >
           <Button
             leftIcon={IoMdAdd}
@@ -75,6 +76,7 @@ const Header: React.FC<HeaderProps> = ({
             </span>
           </Button>
         </Link>
+        : ""}
         {/* </div> */}
       </div>
     </div>

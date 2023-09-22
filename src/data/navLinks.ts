@@ -4,9 +4,10 @@ import {
   JOBS,
   LOGOUT,
   NOTIFICATIONS,
+  APPLICATIONS
 } from '@/constant/constants';
 
-import { CANDIDATES } from '../constant/constants';
+// import { CANDIDATES } from '../constant/constants';
 
 export const profileDropdown = [
   {
@@ -49,22 +50,9 @@ export const sideBarData: {
   },
   {
     id: 2,
-    name: CANDIDATES,
-    link: '/candidates/active',
-    subLinks: [
-      {
-        id: 1,
-        subType: 'Active',
-        link: '/candidates/active',
-        icon: 'bi:dot',
-      },
-      {
-        id: 2,
-        subType: 'Inactive',
-        link: '/candidates/in-active',
-        icon: 'bi:dot',
-      },
-    ],
+    name: APPLICATIONS,
+    link: '/applications/active',
+    subLinks: [],
     icon: 'fluent:people-community-20-regular',
     active_icon: 'fluent:people-community-20-filled',
   },

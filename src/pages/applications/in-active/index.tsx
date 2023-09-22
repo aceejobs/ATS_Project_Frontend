@@ -2,18 +2,21 @@ import Image from 'next/image';
 import React from 'react';
 import ReactDatePicker from 'react-datepicker';
 
-import Candidates from '@/components/lib/candidates/Candidates';
 import Header from '@/components/lib/header/Header';
+import InactiveCandidate from '@/components/lib/inactiveCandidate/InactiveCandidate';
 import MainContentLayout from '@/components/shared/MainContentLayout/MainContentLayout';
 
-const Active = () => {
+const InActive = () => {
   const [dateRange, setDateRange] = React.useState<[Date | null, Date | null]>([
     null,
     null,
   ]);
   const [startDate, stopDate] = dateRange;
+
   const handleDateChange = (date: [Date | null, Date | null]) => {
     setDateRange(date);
+
+    // const [start, end] = date
   };
 
   return (
@@ -21,7 +24,7 @@ const Active = () => {
       <div>
         <Header
           candidate
-          text='Candidates Overview'
+          text='Inactive Applications'
           componentWidth='w-[300px]'
           add
           component={
@@ -49,7 +52,7 @@ const Active = () => {
           }
         />
         <div className='mt-3   w-full  rounded-[10px] bg-white px-10 shadow-lg'>
-          <Candidates
+          <InactiveCandidate
             filterData={startDate && stopDate ? { startDate, stopDate } : {}}
           />
         </div>
@@ -58,4 +61,4 @@ const Active = () => {
   );
 };
 
-export default Active;
+export default InActive;

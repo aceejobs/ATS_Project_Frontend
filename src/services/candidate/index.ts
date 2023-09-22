@@ -6,7 +6,7 @@ import {
 } from '@/utils/api/calls';
 import { ICandidate, ICandidateFilter } from '@/utils/types';
 
-const ENDPOINT = '/candidate';
+const ENDPOINT = '/applicants';
 
 export const createCandidate = (data: FormData) => {
   return postRequest<ICandidate>({

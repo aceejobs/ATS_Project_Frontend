@@ -27,6 +27,7 @@ export interface ICandidate {
   _id: string;
   firstName: string;
   lastName: string;
+  fullName: string;
   email: string;
   phone: string;
   dateOfBirth: string;

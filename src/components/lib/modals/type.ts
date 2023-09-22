@@ -12,7 +12,7 @@ export interface GenModalProps {
 export interface IDeleteAlertProps {
   isOpen: boolean;
   handleCloseModal: () => void;
-  candidate: { first: string; last: string; id: string };
+  candidate: { fullName: string;  id: string };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   deleteFn: UseMutateFunction<any, unknown, string, { snapshot: unknown }>;
   loading: boolean;
@@ -20,7 +20,7 @@ export interface IDeleteAlertProps {
 export interface IArchiveAlertProps {
   isOpen: boolean;
   handleCloseModal: () => void;
-  candidate: { first: string; last: string; id: string };
+  candidate: { fullName: string; id: string };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   archiveFn: UseMutateFunction<any, unknown, string, unknown>;
   loading: boolean;

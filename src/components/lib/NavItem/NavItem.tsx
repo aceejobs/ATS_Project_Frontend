@@ -38,7 +38,7 @@ const NavItem = () => {
               }}
               className={
                 route.includes(item.link) ||
-                (route === '/candidates/in-active' && index === 1)
+                (route === '/applications/in-active' && index === 1)
                   ? 'mx-auto mt-1  flex w-full cursor-pointer items-center justify-between rounded-md bg-ace-blue p-2 px-7 text-white ease-in-out'
                   : 'mx-auto  mt-1 flex w-full cursor-pointer items-center justify-between rounded-md p-2 px-7 ease-in-out hover:bg-ace-light-blue hover:text-white'
               }

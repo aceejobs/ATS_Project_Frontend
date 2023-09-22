@@ -7,7 +7,7 @@ export const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
 // SIDEBAR LINKS
 export const DASHBOARD = 'Dashboard';
-export const CANDIDATES = 'Candidates';
+export const APPLICATIONS = 'Applications';
 export const JOBS = 'Jobs';
 export const PROFILE_IMAGE = 'profileImage';
 export const EMAIL = 'email';

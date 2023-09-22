@@ -31,8 +31,7 @@ const Candidates = ({ filterData }: { filterData: ICandidateFilter }) => {
   const [currentId, setCurrentId] = useState<string>();
   const tipRef = useRef<null | HTMLDivElement>(null);
   const [candidateToActOn, setCandidateToActOn] = useState({
-    first: '',
-    last: '',
+    fullName: '',
     id: '',
   });
 
@@ -55,7 +54,8 @@ const Candidates = ({ filterData }: { filterData: ICandidateFilter }) => {
   } = useArchiveCandidate();
 
   const { filteredData } = useSearchCandidate(data);
-
+  console.log(data)
+console.log(filterData)
   useEffect(() => {
     if (isSuccess) {
       setOpenDeleteModal(false);
@@ -91,10 +91,10 @@ const Candidates = ({ filterData }: { filterData: ICandidateFilter }) => {
               '',
               'Candidate',
               'Role',
-              'Verification Status',
-              'Job Status',
-              'Location',
+              'Email',
+              'Phone Number',
               'Gender',
+              "Application Date"
             ]}
           />
           <TableBody>
@@ -113,29 +113,31 @@ const Candidates = ({ filterData }: { filterData: ICandidateFilter }) => {
                 </TableCell>
                 <TableCell>
                   <div className='flex items-center gap-2'>
-                    <div className='relative h-[28px] w-[28px]  '>
+                    {/* <div className='relative h-[28px] w-[28px]  '>
                       <Image
                         src={candidate.profileImage}
                         alt='image'
                         fill={true}
                         className='rounded-full object-cover'
                       />
-                    </div>
+                    </div> */}
                     <p
                       className='cursor-pointer'
                       onClick={() =>
                         router.push(`/candidates/active/${candidate._id}`)
                       }
                     >
-                      {candidate.firstName} {candidate.lastName}
+                      {candidate.fullName}
                     </p>
                   </div>
                 </TableCell>
                 <TableCell>{candidate.profession}</TableCell>
-                <TableCell>
+                <TableCell>{candidate.email}</TableCell>
+
+                {/* <TableCell>
                   <StatusBar text={candidate.verificationStatus} />
-                </TableCell>
-                <TableCell>
+                </TableCell> */}
+                {/* <TableCell>
                   <Image
                     src={
                       candidate.jobStatus === 'Interview'
@@ -149,11 +151,12 @@ const Candidates = ({ filterData }: { filterData: ICandidateFilter }) => {
                     height={25}
                     className='mx-auto block'
                   />
-                </TableCell>
+                </TableCell> */}
                 <TableCell>
-                  {candidate.city}, {candidate.country}
+                  {candidate.phone}
                 </TableCell>
                 <TableCell>{candidate.gender}</TableCell>
+                <TableCell>{candidate.createdAt.slice(0, 10)}</TableCell>
                 <TableCell>
                   <div ref={tipRef} className='relative'>
                     <Icon
@@ -171,12 +174,11 @@ const Candidates = ({ filterData }: { filterData: ICandidateFilter }) => {
                         className='absolute -right-0 z-[999] h-max w-[117px] rounded-[5px] bg-white  p-4 text-[12px] text-ace-black shadow'
                       >
                         <div>
-                          {/* <button
+                          <button
                             onClick={() => {
                               setOpenArchiveModal(true);
                               setCandidateToActOn({
-                                first: candidate.firstName,
-                                last: candidate.lastName,
+                                fullName: candidate.fullName,
                                 id: candidate._id,
                               });
                             }}
@@ -189,13 +191,12 @@ const Candidates = ({ filterData }: { filterData: ICandidateFilter }) => {
                               height={15}
                             />
                             <p>Archive</p>
-                          </button> */}
+                          </button>
                           <button
                             onClick={() => {
                               setOpenDeleteModal(true);
                               setCandidateToActOn({
-                                first: candidate.firstName,
-                                last: candidate.lastName,
+                                fullName: candidate.fullName,
                                 id: candidate._id,
                               });
                             }}
