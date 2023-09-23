@@ -25,7 +25,7 @@ const NavItem = () => {
   // const test =
 
   return (
-    <div className='nav-item bg-white pb-20 lg:pb-6'>
+    <div className='nav-item bg-white pb-20 lg:pb-6 mt-12'>
       {sideBarData.map((item, index) => (
         <div key={index}>
           <div key={index} className='overflow-hidden text-ace-black'>
@@ -40,7 +40,7 @@ const NavItem = () => {
                 route.includes(item.link) ||
                 (route === '/applications/in-active' && index === 1)
                   ? 'mx-auto mt-1  flex w-full cursor-pointer items-center justify-between rounded-md bg-ace-blue p-2 px-7 text-white ease-in-out'
-                  : 'mx-auto  mt-1 flex w-full cursor-pointer items-center justify-between rounded-md p-2 px-7 ease-in-out hover:bg-ace-light-blue hover:text-white'
+                  : 'mx-auto  mt-1 flex w-full cursor-pointer items-center text-gray-600 justify-between rounded-md p-2 px-7 ease-in-out hover:bg-ace-light-blue hover:text-white'
               }
             >
               <span className='flex flex-col items-center gap-3  lg:flex-row '>

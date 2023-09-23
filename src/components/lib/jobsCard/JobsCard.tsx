@@ -82,7 +82,7 @@ const JobsCard: React.FC<JobCardProps> = ({ data }) => {
         ref={tipRef}
         className=' relative flex flex-wrap items-center justify-between'
       >
-        <p className='w-[90%] text-[16px] '> {data.job?.title}</p>
+        <p className='w-[90%] text-[16px] font-semibold'> {data.job?.title}</p>
         <Icon
           icon='carbon:overflow-menu-vertical'
           className='w-[10%] cursor-pointer text-xl'
@@ -134,7 +134,7 @@ const JobsCard: React.FC<JobCardProps> = ({ data }) => {
           </div>
         )}
       </div>
-      <p className='mt-2 font-light'>{data.job?.company}</p>
+      <p className='mt-2 text-sm text-gray-700 font-light'>{data.job?.company}</p>
       <div
         onClick={moveToNext}
         className={`my-4 w-full rounded-[5px]  px-2 py-3 text-center ${
@@ -157,10 +157,10 @@ const JobsCard: React.FC<JobCardProps> = ({ data }) => {
         </div>
       </div>
       <div className='flex items-center justify-between text-[12px]'>
-        <p>{data.job?.location}</p>
-        <p>₦ {data.job?.salary.toLocaleString()}</p>
+        <p className='text-gray-600'>{data.job?.location}</p>
+        <p className='text-gray-600'>₦ {data.job?.salary.toLocaleString()}</p>
       </div>
-      <p className=' text-[12px]'>{data.job?.jobType}</p>
+      <p className=' text-[12px] text-gray-600'>{data.job?.jobType}</p>
     </div>
   );
 };

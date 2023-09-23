@@ -68,7 +68,7 @@ const Jobs = () => {
           <p>No Jobs</p>
         </div>
       ) : (
-        <div className='mt-3 flex justify-between gap-4'>
+        <div className='mt-8 flex justify-between gap-4'>
           <div className='w-[82%]'>
             <JobsOverview data={data} />
           </div>

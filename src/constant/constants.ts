@@ -9,6 +9,7 @@ export const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 export const DASHBOARD = 'Dashboard';
 export const APPLICATIONS = 'Applications';
 export const JOBS = 'Jobs';
+export const CONTACTS = 'Contacts';
 export const PROFILE_IMAGE = 'profileImage';
 export const EMAIL = 'email';
 export const LAST_NAME = 'lastName';

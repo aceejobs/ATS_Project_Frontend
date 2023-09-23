@@ -6,6 +6,7 @@ import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import Search from '@/components/lib/search/Search';
 
 import { useAppSelector } from '../../../store/store.hooks';
+import InitialsAvatar from "react-initials-avatar";
 
 const NavBar: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -13,6 +14,8 @@ const NavBar: React.FC = () => {
   const tipRef = useRef<null | HTMLDivElement>(null);
   const { user } = useAppSelector((state) => state.user);
 
+  console.log("user", user)
+  const fullName =  `${user?.firstName} ${user?.lastName}`
   useOnClickOutside(tipRef, () => setShowTip(false));
 
   return (
@@ -21,14 +24,17 @@ const NavBar: React.FC = () => {
         <Search className='w-[434px] ' />
         <div className='relative cursor-pointer py-2' ref={dropdownRef}>
           <div ref={tipRef} className='flex items-center gap-2 text-xs'>
-            <div className='relative mx-auto mt-3 block h-[62px] w-[62px] rounded-full'>
-              <Image
+            <div className='border border-white bg-gray-800 w-[3rem] h-[3rem] flex justify-center items-center rounded-full'>
+            <InitialsAvatar className='text-[20px] text-white font-bold'
+                    name={user?  fullName  : ""}
+                  />
+              {/* <Image
                 alt='owner'
                 // src='https://res.cloudinary.com/emmabraboke/image/upload/v1680001036/o9x7rkbrpjqqerh5agnt.png'
                 src={user?.profileImage}
                 fill={true}
                 className='rounded-full object-contain'
-              />
+              /> */}
             </div>
 
             <div
@@ -38,7 +44,7 @@ const NavBar: React.FC = () => {
               className='mr-20'
             >
               <p className='text-[14px] font-bold'>
-                {user?.firstName} {user?.lastName.charAt(0)}
+                {user?.firstName} {user?.lastName}
               </p>
               <p>Admin</p>
             </div>
@@ -71,7 +77,7 @@ const NavBar: React.FC = () => {
                 <div className='mt-3 px-6'>
                   <div className='flex items-center justify-between '>
                     <p>
-                      {user?.firstName} {user?.lastName.charAt(0)}
+                      {user?.firstName} {user?.lastName}
                     </p>
                     {/* <Icon
                       icon='material-symbols:edit'

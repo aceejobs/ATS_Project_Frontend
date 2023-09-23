@@ -2,6 +2,7 @@ import {
   DASHBOARD,
   HELP,
   JOBS,
+  CONTACTS,
   LOGOUT,
   NOTIFICATIONS,
   APPLICATIONS
@@ -63,5 +64,13 @@ export const sideBarData: {
     subLinks: [],
     icon: 'ph:briefcase-light',
     active_icon: 'ph:briefcase-fill',
+  },
+  {
+    id: 4,
+    name: CONTACTS,
+    link: '/contacts',
+    subLinks: [],
+    icon: 'mdi:account-box-outline',
+    active_icon: 'mdi:account-box',
   },
 ];
