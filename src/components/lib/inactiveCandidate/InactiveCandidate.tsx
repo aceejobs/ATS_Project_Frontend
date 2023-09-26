@@ -33,9 +33,8 @@ const InactiveCandidate = ({
   const router = useRouter();
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [candidateToActOn, setCandidateToActOn] = useState({
-    first: '',
-    last: '',
     id: '',
+  fullName: "",
   });
 
   const [id, setId] = React.useState<string[]>([]);
@@ -187,8 +186,7 @@ const InactiveCandidate = ({
                                 // handleDeleteCandidate(candidate._id);
                                 setOpenDeleteModal(true);
                                 setCandidateToActOn({
-                                  first: candidate.firstName,
-                                  last: candidate.lastName,
+                                  fullName: candidate.lastName,
                                   id: candidate._id,
                                 });
                               }}

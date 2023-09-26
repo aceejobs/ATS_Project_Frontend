@@ -48,7 +48,7 @@ const ArchiveAlert: React.FC<IArchiveAlertProps> = ({
               Action Alert
             </p>
             <p className='my-6 text-center text-[16px] font-[400]'>
-              You are about to archive {candidate?.first} {candidate.last}!
+              You are about to archive {candidate?.fullName} !
               Click on continue to proceed.
             </p>
           </div>

@@ -48,7 +48,7 @@ const DeleteAlert: React.FC<IDeleteAlertProps> = ({
               Action Alert
             </p>
             <p className='my-6 text-center text-[16px] font-[400]'>
-              You are about to delete {candidate?.first} {candidate.last}! Click
+              You are about to delete {candidate?.fullName}! Click
               on continue to proceed.
             </p>
           </div>

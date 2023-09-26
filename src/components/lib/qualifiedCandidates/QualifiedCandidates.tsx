@@ -27,7 +27,7 @@ const QualifiedCandidates: React.FC<QualifiedCandidateProps> = ({ data }) => {
   const [hireModal, setHireModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [candidateToActOn, setCandidateToActOn] = useState({
-    first: '',
+    fullName: '',
     last: '',
     id: '',
   });
@@ -159,7 +159,7 @@ const QualifiedCandidates: React.FC<QualifiedCandidateProps> = ({ data }) => {
 
                               setStatus('Interview');
                               setCandidateToActOn({
-                                first: candidate.firstName,
+                                fullName: candidate.firstName,
                                 last: candidate.lastName,
                                 id: candidate._id,
                               });
@@ -180,7 +180,7 @@ const QualifiedCandidates: React.FC<QualifiedCandidateProps> = ({ data }) => {
 
                               setStatus('Hired');
                               setCandidateToActOn({
-                                first: candidate.firstName,
+                                fullName: candidate.firstName,
                                 last: candidate.lastName,
                                 id: candidate._id,
                               });
@@ -198,11 +198,11 @@ const QualifiedCandidates: React.FC<QualifiedCandidateProps> = ({ data }) => {
                           <div
                             onClick={() => {
                               setOpenDeleteModal(true);
-                              setCandidateToActOn({
-                                first: candidate.firstName,
-                                last: candidate.lastName,
-                                id: candidate._id,
-                              });
+                              // setCandidateToActOn({
+                              //   first: candidate.firstName,
+                              //   last: candidate.lastName,
+                              //   id: candidate._id,
+                              // });
                             }}
                             className='mt-2 flex cursor-pointer items-center  gap-3'
                           >
@@ -230,14 +230,14 @@ const QualifiedCandidates: React.FC<QualifiedCandidateProps> = ({ data }) => {
         deleteFn={handleDeleteCandidate}
         loading={isLoading}
       />
-      <HireOrInterviewAlert
+      {/* <HireOrInterviewAlert
         isOpen={hireModal}
         handleCloseModal={() => setHireModal(false)}
         candidate={candidateToActOn}
         hireFn={handleUpdateJobStatus}
         loading={updateJobLoading}
         status={status}
-      />
+      /> */}
     </div>
   );
 };
