@@ -9,14 +9,14 @@ type DateFilter = { startDate?: string; stopDate?: string };
 
 const getOverViewData = (data: DateFilter = {}) => {
   return getRequest<IOverviewData[]>({
-    url: `/admin/overview`,
+    url: `/jobs`,
     params: data,
   });
 };
 
 const getDemographicData = (data: DateFilter = {}) => {
-  return getRequest<IDemographicData>({
-    url: `/admin/demographic`,
+  return getRequest<IDemographicData[]>({
+    url: `/applicants`,
     params: data,
   });
 };

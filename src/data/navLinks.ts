@@ -49,21 +49,22 @@ export const sideBarData: {
     icon: 'ic:round-dashboard',
     active_icon: 'material-symbols:dashboard-rounded',
   },
+  
   {
     id: 2,
-    name: APPLICATIONS,
-    link: '/applications/active',
-    subLinks: [],
-    icon: 'fluent:people-community-20-regular',
-    active_icon: 'fluent:people-community-20-filled',
-  },
-  {
-    id: 3,
     name: JOBS,
     link: '/jobs',
     subLinks: [],
     icon: 'ph:briefcase-light',
     active_icon: 'ph:briefcase-fill',
+  },
+  {
+    id: 3,
+    name: APPLICATIONS,
+    link: '/applications/active',
+    subLinks: [],
+    icon: 'fluent:people-community-20-regular',
+    active_icon: 'fluent:people-community-20-filled',
   },
   {
     id: 4,

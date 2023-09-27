@@ -47,7 +47,7 @@ const Dashboard = () => {
   };
 
   // eslint-disable-next-line unused-imports/no-unused-vars
-  const { data, isError, isLoading } = useQuery({
+  const { data : jobData, isError, isLoading } = useQuery({
     queryKey: [queryKeys.getDashboardOverview, dateRange],
     queryFn: () =>
       getOverViewData({
@@ -71,22 +71,23 @@ const Dashboard = () => {
         stopDate: stopDate?.toString(),
       }),
   });
+
   const dashboardData = [
     {
-      title: 'Number of Candidates',
-      number: demographicData?.candidates.numberOfCandidates || 0,
+      title: 'Number of Applicants',
+      number: demographicData?.length || 0,
       arrowImage: 'mdi:arrow-down',
-      subTitle: 'New candidates in 30 days',
-      smallNumber: `${demographicData?.candidates.candidatePercent || 0}%`,
+      subTitle: 'New applicants in 30 days',
+      smallNumber: `${demographicData?.length || 0}%`,
       graphStroke: 'red',
       graphData: plotData ? getTrendData(plotData?.candidatePlot) : [],
     },
     {
-      title: 'Number of Hires',
-      number: demographicData?.hires.numberOfHires || 0,
-      subTitle: 'New hires in 30 days',
+      title: 'Number of Jobs',
+      number: jobData?.length || 0, 
+      subTitle: 'New jobs in 30 days',
       arrowImage: 'mdi:arrow-up',
-      smallNumber: `${demographicData?.hires.hirePercent || 0}%`,
+      smallNumber: `${demographicData?.length || 0}%`,
       graphStroke: 'blue',
       graphData: plotData ? getTrendData(plotData?.hirePlot) : [],
     },
@@ -95,13 +96,16 @@ const Dashboard = () => {
     {
       id: 1,
       title: 'Total No of Jobseekers ',
-      number: demographicData?.totalJobSeekers || 0,
+      // number: demographicData?.length || 0,
+      number:  0,
+
       image: '/assets/svg/red-people.svg',
     },
     {
       id: 2,
       title: 'Total Hired ',
-      number: demographicData?.totalHired || 0,
+      // number: demographicData?.length || 0,
+      number:  0,
       image: '/assets/svg/blue-people.svg',
     },
   ];
@@ -110,29 +114,29 @@ const Dashboard = () => {
     <MainContentLayout>
       <div>
         <Header
-          component={
-            <div className='flex items-center gap-2 px-4'>
-              <Image
-                src='/assets/svg/calender.svg'
-                alt='calender'
-                width={18}
-                height={20}
-              />
-              <ReactDatePicker
-                onChange={handleDateChange}
-                startDate={startDate}
-                endDate={stopDate}
-                selectsRange={true}
-                isClearable={true}
-                showIcon={true}
-                placeholderText='Feb 24 2023 -March 24 2023'
-                dateFormat='yyyy/MM/dd'
-                className=' h-full w-full rounded-[5px] border-none text-center outline-none'
-                monthsShown={2}
-                showYearDropdown
-              />
-            </div>
-          }
+          // component={
+          //   <div className='flex items-center gap-2 px-4'>
+          //     <Image
+          //       src='/assets/svg/calender.svg'
+          //       alt='calender'
+          //       width={18}
+          //       height={20}
+          //     />
+          //     <ReactDatePicker
+          //       onChange={handleDateChange}
+          //       startDate={startDate}
+          //       endDate={stopDate}
+          //       selectsRange={true}
+          //       isClearable={true}
+          //       showIcon={true}
+          //       placeholderText='Feb 24 2023 -March 24 2023'
+          //       dateFormat='yyyy/MM/dd'
+          //       className=' h-full w-full rounded-[5px] border-none text-center outline-none'
+          //       monthsShown={2}
+          //       showYearDropdown
+          //     />
+          //   </div>
+          // }
           text='Recruitment Dashboard'
           componentWidth='w-[300px]'
         />
@@ -182,7 +186,7 @@ const Dashboard = () => {
         <section>
           <div className='mt-3   w-full  rounded-[10px] bg-white p-10 shadow-lg'>
             <div className='flex justify-between'>
-              <p className='text-[20px] '>Recruitment Dashboard</p>
+              <p className='text-[20px] '>Recruitment Overview</p>
               <div className='flex gap-4'>
                 <button className='h-[40px] w-[102px] rounded-[5px] bg-bg text-ace-black'>
                   <span>View All</span>
@@ -190,7 +194,7 @@ const Dashboard = () => {
                 <Search className='w-[252px]' />
               </div>
             </div>
-            <RecentActivity data={data} />
+            {/* <RecentActivity data={jobData} /> */}
           </div>
         </section>
       </div>
