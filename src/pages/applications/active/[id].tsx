@@ -19,6 +19,7 @@ const CandidateInfo = () => {
     queryKey: ['candidate', candidateId],
     queryFn: () => getSingleCandidate(candidateId as string),
   });
+  console.log("view", data)
   return (
     <MainContentLayout>
       <div>
@@ -26,7 +27,7 @@ const CandidateInfo = () => {
           text='Candidate Details'
           component={
             <Link
-              href={`/candidates/edit-info/${router.query.id}`}
+              href={`/applications/edit-info/${router.query.id}`}
               className='flex h-[45px] w-[102px] cursor-pointer items-center justify-center gap-2 rounded-[5px] bg-white '
             >
               <Image
@@ -40,15 +41,15 @@ const CandidateInfo = () => {
           }
           componentWidth='w-[102px]'
         />
-        <div className='mt-3 h-[60px] w-full rounded-[5px] bg-white px-[12rem]   shadow '>
+        {/* <div className='mt-3 h-[60px] w-full rounded-[5px] bg-white px-[12rem]   shadow '>
           <div className=' my-auto flex h-full items-center justify-between'>
             <Button variant='primary' className=' h-[40px] w-[207px]'>
               <span>Details</span>
             </Button>
             <p>Hiring Stage</p>
           </div>
-        </div>
-        <section className='mt-6  flex gap-6'>
+        </div> */}
+        <section className='mt-2  flex gap-6'>
           <div className=' w-[49%]'>{data && <BioData candidate={data} />}</div>
           <div className=' w-[49%]'>
             {data && <BackgroundDetails candidate={data} />}

@@ -23,6 +23,7 @@ import Skeleton from '@/components/Skeleton';
 import { getActiveCandidates } from '@/services/candidate';
 import queryKeys from '@/utils/api/queryKeys';
 import { ICandidate, ICandidateFilter } from '@/utils/types';
+import Link from 'next/link';
 
 const Candidates = ({ filterData }: { filterData: ICandidateFilter }) => {
   // eslint-disable-next-line unused-imports/no-unused-vars
@@ -55,7 +56,6 @@ const Candidates = ({ filterData }: { filterData: ICandidateFilter }) => {
 
   const { filteredData } = useSearchCandidate(data);
   console.log(data)
-console.log(filterData)
   useEffect(() => {
     if (isSuccess) {
       setOpenDeleteModal(false);
@@ -171,9 +171,20 @@ console.log(filterData)
                     {showTip && currentId === candidate._id && (
                       <div
                         ref={tipRef}
-                        className='absolute -right-0 z-[999] h-max w-[117px] rounded-[5px] bg-white  p-4 text-[12px] text-ace-black shadow'
+                        className='absolute -right-0 z-[999] h-max w-[137px] rounded-[5px] bg-white  p-4 text-[12px] text-ace-black shadow'
                       >
                         <div>
+                        <Link href={`/applications/active/${candidate._id}`}
+                            className='mt-2 flex cursor-pointer items-center  gap-3'
+                          >
+                            <Image
+                              src='/assets/svg/pen.svg'
+                              alt='archive'
+                              width={15}
+                              height={15}
+                            />
+                            <p className=''>Edit</p>
+                          </Link>
                           <button
                             onClick={() => {
                               setOpenArchiveModal(true);
@@ -210,6 +221,7 @@ console.log(filterData)
                             />
                             <p className='text-ace-red'>Delete</p>
                           </button>
+                        
                         </div>
                       </div>
                     )}

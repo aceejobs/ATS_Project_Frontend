@@ -71,7 +71,8 @@ const JobsCard: React.FC<JobCardProps> = ({ data }) => {
   }
 
   return (
-    <div
+        <div 
+        onClick={moveToNext}
       className={`jobs-card border-l-[8px]  bg-white p-6 ${
         data.job?.isAvailable
           ? 'cursor-pointer border-ace-blue '

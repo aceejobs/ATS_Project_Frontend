@@ -69,12 +69,12 @@ const Jobs = () => {
         </div>
       ) : (
         <div className='mt-8 flex justify-between gap-4'>
-          <div className='w-[82%]'>
+          <div className='w-[100%]'>
             <JobsOverview data={data} />
           </div>
-          <div className='h-full w-[18%] rounded-[5px] bg-[#c9d0fc] p-6 shadow'>
+          {/* <div className='h-full w-[18%] rounded-[5px] bg-[#c9d0fc] p-6 shadow'>
             <JobsFilter />
-          </div>
+          </div> */}
         </div>
       )}
     </MainContentLayout>

@@ -81,6 +81,7 @@ const PrimarySelect: React.FC<SelectInputProps> = ({
 
   return (
     <div className={`${className} mb-4   text-ace-black`}>
+      <label htmlFor="name" className='mb-2 text-[14px] font-[700] text-ace-black'>{placeholder}</label>
       <Select
         placeholder={`Select ${placeholder || 'option'}`}
         name={name}

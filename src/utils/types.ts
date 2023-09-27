@@ -54,6 +54,7 @@ export interface ICandidate {
   nextOfKinPhone: string;
   nextOfKinCity: string;
   nextOfKinCountry: string;
+  coverLeter: string;
   staffId: {
     _id: string;
     firstName: string;
@@ -63,6 +64,7 @@ export interface ICandidate {
   isArchive: boolean;
   createdAt: string;
   updatedAt: string;
+  cv: string;
   __v: number;
 }
 
