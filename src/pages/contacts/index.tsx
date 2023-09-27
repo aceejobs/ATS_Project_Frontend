@@ -5,7 +5,7 @@ import Header from '@/components/lib/header/Header';
 import JobsOverview from '@/components/lib/jobs/JobsOverview';
 import MainContentLayout from '@/components/shared/MainContentLayout/MainContentLayout';
 
-const index = () => {
+const Index = () => {
   const [dateRange, setDateRange] = React.useState<[Date | null, Date | null]>([
     null,
     null,
@@ -56,4 +56,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

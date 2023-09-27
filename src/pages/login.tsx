@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { useMutation } from 'react-query';
 import * as Yup from 'yup';
@@ -21,7 +21,7 @@ const Login: NextPageWithLayout = () => {
 
   const { mutate, isLoading } = useMutation(login, {
     onSuccess(response) {
-      console.log(response)
+      // console.log(response)
       const data = processResponse(response);
 
       if (data) {
@@ -60,6 +60,14 @@ const Login: NextPageWithLayout = () => {
       });
     },
   });
+  useEffect(() => {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      // User data is present, redirect to /dashboard
+      router.replace('/dashboard'); // Use router.replace() to replace the current history entry
+    }
+  }, []);
+
 
   return (
     <div className='flex'>
@@ -136,3 +144,5 @@ Login.getLayout = function getLayout(page: ReactElement) {
 };
 
 export default Login;
+
+

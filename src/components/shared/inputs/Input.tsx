@@ -40,7 +40,7 @@ const PrimaryInput: React.FC<InputProps<HTMLInputElement>> = ({
             <MainInput
               name={name}
               id={id}
-              type={changeType ? type : 'text'}
+              type={changeType ? "text" : type}
               placeholder={holder}
               className='h-full w-full rounded-[5px] border-none bg-transparent outline-none focus:border-none'
               {...getFieldProps}
