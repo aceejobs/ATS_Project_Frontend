@@ -48,7 +48,7 @@ const Active = () => {
             </div>
           }
         />
-        <div className='mt-3   w-full  rounded-[10px] bg-white px-10 shadow-lg'>
+        <div className='mt-3   w-full min-h-screen  rounded-[10px] bg-white md:px-10 px-4 shadow-lg'>
           <Candidates
             filterData={startDate && stopDate ? { startDate, stopDate } : {}}
           />

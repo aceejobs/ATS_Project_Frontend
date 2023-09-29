@@ -49,9 +49,9 @@ const CandidateInfo = () => {
             <p>Hiring Stage</p>
           </div>
         </div> */}
-        <section className='mt-2  flex gap-6'>
-          <div className=' w-[49%]'>{data && <BioData candidate={data} />}</div>
-          <div className=' w-[49%]'>
+        <section className='mt-2  md:flex gap-6'>
+          <div className=' md:w-[49%]'>{data && <BioData candidate={data} />}</div>
+          <div className=' md:w-[49%]'>
             {data && <BackgroundDetails candidate={data} />}
           </div>
         </section>

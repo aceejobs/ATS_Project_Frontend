@@ -15,7 +15,7 @@ const CreateJob = () => {
           <p>Hiring Stage</p>
         </div>
       </div> */}
-      <div className='mt-8   w-full  rounded-[10px] bg-white p-10 shadow-lg border-t-8 border-blue-700'>
+      <div className='mt-8   w-full  rounded-[10px] bg-white md:p-10 p-6 shadow-lg border-t-8 border-blue-700'>
         <p className="text-2xl mb-8 font-semibold">Create Job</p>
         <CreateJobForm />
       </div>

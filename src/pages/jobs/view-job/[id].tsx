@@ -36,9 +36,9 @@ const SingleJobDetails = () => {
           <p>Hiring Stage</p>
         </div>
       </div> */}
-      <section className='my-10  w-full  rounded-[10px] bg-white p-10 shadow-lg border-t-8 border-blue-700'>
+      <section className='my-10  w-full  rounded-[10px] bg-white md:p-10 p-6 shadow-lg border-t-8 border-blue-700'>
         <p className="mb-6 font-semibold text-2xl">View Job</p>
-        <section className=' w-[40%] '>
+        <section className=' md:w-[40%] '>
           <div className='grid grid-cols-2'>
             <div className=''>
               <p className='text-[16px] font-semibold'>Job Title</p>
@@ -109,7 +109,7 @@ const SingleJobDetails = () => {
 
         <div
             onClick={() => router.push(`/jobs/edit-job/${router.query.id}`)}
-            className='flex py-4 ml-4  md:w-[10rem] w-full  cursor-pointer items-center justify-center gap-2 rounded-[5px] bg-white border'
+            className='flex mt-2 py-4 md:ml-4  md:w-[10rem] w-full  cursor-pointer items-center justify-center gap-2 rounded-[5px] bg-white border'
           >
             <Image
               alt='filter'
