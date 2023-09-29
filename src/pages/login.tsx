@@ -71,7 +71,7 @@ const Login: NextPageWithLayout = () => {
 
   return (
     <div className='flex'>
-      <div className='flex h-screen w-[40%] items-center justify-center bg-ace-light-blue'>
+      <div className='md:flex h-screen w-[40%] items-center justify-center bg-ace-light-blue hidden'>
         <div
           className='relative h-screen w-[100%]'
           style={{
@@ -83,7 +83,7 @@ const Login: NextPageWithLayout = () => {
       </div>
 
       {/* form section */}
-      <div className='flex h-screen w-[60%] flex-col items-center justify-center'>
+      <div className='flex h-screen md:w-[60%] flex-col items-center justify-center w-full'>
         <div className='relative mb-8 h-[78px] w-[139px]'>
           <Image
             src='/assets/svg/blg-logo.svg'

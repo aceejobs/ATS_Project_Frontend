@@ -95,7 +95,7 @@ const Register: NextPageWithLayout = () => {
 
   return (
     <div className='flex'>
-      <div className='flex h-screen w-[40%] items-center justify-center bg-ace-light-blue'>
+      <div className='md:flex h-screen w-[40%] items-center justify-center bg-ace-light-blue hidden'>
         <div
           className='relative h-screen w-[100%]'
           style={{
@@ -107,7 +107,7 @@ const Register: NextPageWithLayout = () => {
       </div>
 
       {/* form section */}
-      <div className='flex h-screen w-[60%] flex-col items-center justify-center'>
+      <div className='flex h-screen md:w-[60%] w-full flex-col items-center justify-center'>
         <div className='relative mb-8 h-[78px] w-[139px]'>
           <Image
             src='/assets/svg/blg-logo.svg'
@@ -116,7 +116,7 @@ const Register: NextPageWithLayout = () => {
             fill={true}
           />
         </div>
-        <div className='card mx-auto w-[70%] p-4 shadow md:p-16'>
+        <div className='card mx-auto md:w-[70%] w-[90%] p-4 shadow md:p-16'>
           <p className='mb-6 text-2xl font-bold text-gray-700'>
             Create your account
           </p>

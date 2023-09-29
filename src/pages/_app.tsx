@@ -40,29 +40,29 @@ function MyApp({
   const [showChild, setShowChild] = useState(false);
   const client = new QueryClient(queryClientConfig);
 
-  const [showMobileWarning, setShowMobileWarning] = useState(false);
+  // const [showMobileWarning, setShowMobileWarning] = useState(false);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.innerWidth <= 800) {
-      setShowMobileWarning(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined' && window.innerWidth <= 800) {
+  //     setShowMobileWarning(true);
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    setShowChild(true);
-  }, []);
+  // useEffect(() => {
+  //   setShowChild(true);
+  // }, []);
 
-  if (!showChild && process.env.NODE_ENV === 'development') {
-    return null;
-  }
+  // if (!showChild && process.env.NODE_ENV === 'development') {
+  //   return null;
+  // }
 
-  if (showMobileWarning) {
-    return (
-      <div className='text-md flex h-screen w-screen items-center justify-center'>
-        <p>This Web App can't be viewed on mobile screens.</p>
-      </div>
-    );
-  }
+  // if (showMobileWarning) {
+  //   return (
+  //     <div className='text-md flex h-screen w-screen items-center justify-center'>
+  //       <p>This Web App can't be viewed on mobile screens.</p>
+  //     </div>
+  //   );
+  // }
 
   const getLayout =
     Component.getLayout ??
