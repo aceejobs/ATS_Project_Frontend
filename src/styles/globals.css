@@ -138,7 +138,7 @@
 }
 
 .layout__side_bar__wrapper {
-  @apply hidden lg:block;
+  /* @apply hidden lg:block; */
   /* @apply col-start */
 }
 
@@ -286,3 +286,6 @@ input[type='number'] {
     padding: 1rem;
 }
 }
+
+
+

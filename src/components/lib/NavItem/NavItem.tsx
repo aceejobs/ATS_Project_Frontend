@@ -39,11 +39,11 @@ const NavItem = () => {
               className={
                 route.includes(item.link) ||
                 (route === '/applications/in-active' && index === 1)
-                  ? 'mx-auto mt-1  flex w-full cursor-pointer items-center justify-between rounded-md bg-ace-blue p-2 px-7 text-white ease-in-out'
-                  : 'mx-auto  mt-1 flex w-full cursor-pointer items-center text-gray-600 justify-between rounded-md p-2 px-7 ease-in-out hover:bg-ace-light-blue hover:text-white'
+                  ? 'mx-auto mt-6  flex w-full cursor-pointer items-center justify-between rounded-md bg-ace-blue p-2 px-7 text-white ease-in-out'
+                  : 'mx-auto  mt-6 flex w-full cursor-pointer items-center text-gray-600 justify-between rounded-md p-2 px-7 ease-in-out hover:bg-ace-light-blue hover:text-white'
               }
             >
-              <span className='flex flex-col items-center gap-3  lg:flex-row '>
+              <span className='flex  items-center gap-3  lg:flex-row '>
                 <span className='text-lg'>
                   <Icon icon={item.icon} className='' />
                 </span>
@@ -120,7 +120,7 @@ const NavItem = () => {
       ))}
 
       <div
-        className='mx-auto  mt-[20rem] flex cursor-pointer items-center gap-3 rounded-[5px] py-2 px-7 ease-in-out'
+        className='mx-auto  mt-[14rem] flex cursor-pointer items-center gap-3 rounded-[5px] py-2 px-7 ease-in-out'
         onClick={logOut}
         // className='flex justify-center items-center gap-3 cursor-pointer mt-60'
       >

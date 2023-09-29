@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({
   useOnClickOutside(activeRef, () => setShowActiveFilter(false));
 
   return (
-    <div className=' mt-1 flex items-center justify-between'>
+    <div className=' mt-1 md:flex items-center justify-between'>
       <p className='text-[20px] '>{text}</p>
       <div className='mr-2 flex items-center gap-3'>
         {candidate && (

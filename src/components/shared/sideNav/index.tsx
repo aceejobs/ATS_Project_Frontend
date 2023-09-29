@@ -1,32 +1,47 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
 import NavItem from '@/components/lib/NavItem';
+import { FiX } from 'react-icons/fi';
 
-const SideNav = () => {
+interface iSideBar {
+  isOpen: Boolean,
+  handleClick: () => void,
+}
+
+
+const SideNav: React.FC<iSideBar> = ({ handleClick, isOpen }) => {
+  
+
   return (
-    <div className='layout__side_bar__wrapper '>
-      <aside className='layout__side_bar'>
-        <div className='my-auto flex h-20 w-full items-center bg-white px-4 py-4'>
-          <Link
-            href='/dashboard'
-            className='relative flex h-full w-full items-center'
-          >
-            <div className='relative mt-8 h-[78px] w-[139px]'>
+<section onClick={handleClick} id="sideBar" className={`w-[256px] sm:w-[226px]  z-10 lg:sticky bg-white h-screen fixed top-0 left-0 transform delay-0 ${isOpen ? 'translate-x-0' : '-translate-x-[300%] lg:translate-x-0'} transition-transform duration-300 ease-in`}>
+      <div className='flex items-center justify-between'>
+        <div className="p-4 cursor-pointer">
+        <div className='logo'>
+          <Link href='/dashboard'>
+            
               <Image
                 src='/assets/svg/samll-logo-2.svg'
                 alt='big-logo'
-                className='object-contain'
-                fill={true}
+                width={139}
+                height={78}
               />
-            </div>
+            
           </Link>
         </div>
-        <div className='w-full px-4 pt-6 '>
+        </div>
+        <button className='pr-[1.66rem] lg:hidden'>
+          <FiX className='text-3xl'/>
+          {/* <img src={Close} alt="Close side navigation" /> */}
+        </button>
+      </div>
+      <nav className="text-[14px] font-medium px-6 md:mt-12 ">
+      
+        <div className='nav-items'>
           <NavItem />
         </div>
-      </aside>
-    </div>
+      </nav>
+      </section>
   );
 };
 

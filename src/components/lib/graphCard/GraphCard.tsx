@@ -14,7 +14,7 @@ const GraphCard: React.FC<GraphCardProps> = ({
   title,
 }) => {
   return (
-    <div className='graph-card  h-[290px] w-[392px] pt-8 '>
+    <div className='graph-card  md:h-[290px] md:w-[392px] pt-8 '>
       <div className='px-10'>
         <p className='text-[16px] font-[500]'>{title}</p>
         <div className='mt-8 flex items-center gap-4'>

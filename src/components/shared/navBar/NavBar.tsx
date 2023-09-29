@@ -7,8 +7,12 @@ import Search from '@/components/lib/search/Search';
 
 import { useAppSelector } from '../../../store/store.hooks';
 import InitialsAvatar from "react-initials-avatar";
-
-const NavBar: React.FC = () => {
+import { FaBars } from 'react-icons/fa';
+interface iNav {
+  handleClick: () => void,
+  isOpen: boolean
+}
+const NavBar:  React.FC<iNav> = ({ handleClick, isOpen })  => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [showTip, setShowTip] = useState(false);
   const tipRef = useRef<null | HTMLDivElement>(null);
@@ -20,34 +24,38 @@ const NavBar: React.FC = () => {
 
   return (
     <nav className='layout__top_nav  mt-4 flex items-center rounded-[5px] '>
-      <div className='flex w-full items-center justify-between px-4 '>
-        <Search className='w-[434px] ' />
-        <div className='relative cursor-pointer py-2' ref={dropdownRef}>
-          <div ref={tipRef} className='flex items-center gap-2 text-xs'>
-            <div className='border border-white bg-gray-800 w-[3rem] h-[3rem] flex justify-center items-center rounded-full'>
-            <InitialsAvatar className='text-[20px] text-white font-bold'
-                    name={user?  fullName  : ""}
-                  />
-              {/* <Image
-                alt='owner'
-                // src='https://res.cloudinary.com/emmabraboke/image/upload/v1680001036/o9x7rkbrpjqqerh5agnt.png'
-                src={user?.profileImage}
-                fill={true}
-                className='rounded-full object-contain'
-              /> */}
-            </div>
+    <div className='flex w-full items-center justify-between px-4 '>
+      <button
+        onClick={handleClick}
+        className='flex items-center w-[2rem] h-[2rem] mr-2 justify-center rounded-[50%] lg:hidden'
+      >
+        <FaBars /> {/* Use the React Icons component for the toggle bar */}
+      </button>
 
+      <div className='w-full lg:w-auto flex items-center'>
+        <Search className='w-[10rem] lg:w-auto' />
+      </div>
+
+      <div className='relative cursor-pointer py-2'>
+        <div className='flex items-center gap-2 text-xs'>
+          <div className='border border-white bg-gray-800 w-[3rem] h-[3rem] flex justify-center items-center rounded-full'>
+            <InitialsAvatar
+              className='text-[20px] text-white font-bold'
+              name={user ? fullName : ''}
+            />
+          </div>
             <div
               onClick={() => {
                 setShowTip(true);
               }}
-              className='mr-20'
+              className='md:mr-20'
             >
               <p className='text-[14px] font-bold'>
                 {user?.firstName} {user?.lastName}
               </p>
-              <p>Admin</p>
+              <p className='hidden md:block'>Admin</p>
             </div>
+            <div className='hidden md:block'>
             <Image
               alt='owner'
               src='/assets/svg/bell.svg'
@@ -55,6 +63,8 @@ const NavBar: React.FC = () => {
               height={40}
               className=''
             />
+            </div>
+            
           </div>
           {showTip && (
             <div

@@ -138,11 +138,11 @@ const Dashboard = () => {
           //   </div>
           // }
           text='Recruitment Dashboard'
-          componentWidth='w-[300px]'
+          componentWidth='md:xw-[300px]'
         />
 
         <section className='mt-3'>
-          <div className='grid grid-cols-2 gap-10 xl:grid-cols-3 xl:gap-14'>
+          <div className='grid grid-cols-1 gap-10 xl:grid-cols-3 xl:gap-14'>
             {dashboardData.map((item, index) => (
               <GraphCard key={index} {...item} />
             ))}
@@ -185,7 +185,7 @@ const Dashboard = () => {
         </section>
         <section>
           <div className='mt-3   w-full  rounded-[10px] bg-white p-10 shadow-lg'>
-            <div className='flex justify-between'>
+            <div className='md:flex justify-between'>
               <p className='text-[20px] '>Recruitment Overview</p>
               <div className='flex gap-4'>
                 <button className='h-[40px] w-[102px] rounded-[5px] bg-bg text-ace-black'>
